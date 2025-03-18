@@ -1,0 +1,45 @@
+import java.util.*;
+
+public class prova {
+    public static Scanner sc = new Scanner(System.in);
+
+    public static int enfileirar(int array[],int inicio, int fim) {
+        if ((fim+1)% array.length==inicio){
+            System.out.println("fila cheia");
+            return fim;
+        }
+        else {
+            array[fim]=sc.nextInt();
+            return ((fim+1)% array.length);
+        }
+
+    }
+
+    public static int desenfileirar(int array[], int inicio, int fim) {
+
+    }
+
+    public static int ler(int array[], int inicio, int fim) {
+
+    }
+
+    public static void main(String args[]) {
+        int fila[] = new int[10];
+        int inicio = 0, fim = 0, x = 0;
+        while (x == 0) {
+            int entrada;
+            entrada = sc.nextInt();
+            if (entrada == 0) {
+                fim = enfileirar(fila,inicio,fim);
+            } else if (entrada == 1) {
+                desenfileirar(fila,inicio,fim);
+
+            } else if (entrada == 2) {
+                ler(fila,inicio,fim);
+
+            } else {
+                x = 1;
+            }
+        }
+    }
+}
