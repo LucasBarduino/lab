@@ -1,0 +1,80 @@
+#include <stdio.h>
+#include <string.h>
+
+int enfileirar(int *fila, int A, int B, int tam)
+{
+    if ((B + 1) % tam == A)
+    {
+        printf("fila cheia\n");
+        return B;
+    }
+    else
+    {
+        int x;
+        scanf("%d", &x);
+        fila[B] = x;
+        printf("%d adicionado na fila\n", x);
+        return (B + 1);
+    }
+}
+
+int desenfileirar(int *fila, int A, int B, int tam)
+{
+    if (A == B)
+    {
+        printf("fila vazia\n");
+    }
+    else
+    {
+        printf("%d removido da fila\n", fila[A]);
+        return (A + 1);
+    }
+}
+
+void ler(int *fila, int A, int B, int tam)
+{
+    if (A == B)
+    {
+        printf("fila vazia\n");
+    }
+    else
+    {
+        int i = A;
+        printf("[  ");
+        while (i != B)
+        {
+            printf("%d  ", fila[i]);
+            i = (i + 1) % tam;
+        }
+
+    }
+    printf("]\n");
+}
+
+int main(void)
+{
+    int fila[10];
+    int inicio = 0, fim = 0, x = 0;
+    while (x == 0)
+    {
+        int entrada;
+        scanf("%d", &entrada);
+        if (entrada == 1)
+        {
+            fim = enfileirar(fila, inicio, fim, 10);
+        }
+        else if (entrada == 2)
+        {
+            inicio = desenfileirar(fila, inicio, fim, 10);
+        }
+        else if (entrada == 3)
+        {
+            ler(fila, inicio, fim, 10);
+        }
+        else
+        {
+            x = 1;
+        }
+    }
+    printf("fim!");
+}
