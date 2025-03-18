@@ -3,24 +3,37 @@ import java.util.*;
 public class prova {
     public static Scanner sc = new Scanner(System.in);
 
-    public static int enfileirar(int array[],int inicio, int fim) {
-        if ((fim+1)% array.length==inicio){
+    public static int enfileirar(int array[], int inicio, int fim) {
+        if ((fim + 1) % array.length == inicio) {
             System.out.println("fila cheia");
             return fim;
-        }
-        else {
-            array[fim]=sc.nextInt();
-            return ((fim+1)% array.length);
+        } else {
+            array[fim] = sc.nextInt();
+            return ((fim + 1) % array.length);
         }
 
     }
 
     public static int desenfileirar(int array[], int inicio, int fim) {
+        if (fim == inicio) {
+            System.out.println("fila vazia");
+            return inicio;
+        } else {
+            return ((inicio + 1) % array.length);
+        }
 
     }
 
-    public static int ler(int array[], int inicio, int fim) {
-
+    public static void ler(int array[], int inicio, int fim) {
+        if (fim == inicio) {
+            System.out.println("fila vazia");
+        } else {
+            int i = inicio;
+            while (i != fim) {
+                System.out.println(array[i]);
+                i = (i + 1) % array.length;
+            }
+        }
     }
 
     public static void main(String args[]) {
@@ -30,12 +43,12 @@ public class prova {
             int entrada;
             entrada = sc.nextInt();
             if (entrada == 0) {
-                fim = enfileirar(fila,inicio,fim);
+                fim = enfileirar(fila, inicio, fim);
             } else if (entrada == 1) {
-                desenfileirar(fila,inicio,fim);
+                desenfileirar(fila, inicio, fim);
 
             } else if (entrada == 2) {
-                ler(fila,inicio,fim);
+                ler(fila, inicio, fim);
 
             } else {
                 x = 1;
